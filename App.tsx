@@ -8,111 +8,42 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
+  Image,
+  SafeAreaView,  
+  StyleSheet,  
   Text,
-  useColorScheme,
-  View,
+  View, 
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+function App(): React.JSX.Element {  
+  
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <SafeAreaView>      
+      <View style={styles.sectionContainer}>
+        <Text style={{textAlign:'center',marginTop:20,color:'white',fontSize:25}}>fareFirst</Text>        
+        <View style={{marginLeft:30,marginRight:30,borderRadius:20,borderColor:'white',borderWidth:1,height:40,marginTop:20,display:'flex',justifyContent:'space-around',flexDirection:'row',alignItems:'center'}}>
+          <Text style={{color:'white'}}>One way</Text>
+          <Text style={{color:'white'}}>Round trip</Text>
+          <Text style={{color:'white'}}>Multi-city</Text>
         </View>
-      </ScrollView>
+        <View style={{paddingLeft:30,paddingRight:30,flexDirection:'row',justifyContent:'space-between',paddingTop:30}}>
+          <View><Text style={{color:'white',fontSize:15}}>From</Text><Text style={{fontSize:35,color:'white',fontWeight:'bold'}}>BLR</Text><Text style={{fontSize:15,color:'white'}}>Bengalure</Text></View>
+          <View><Image source={require('./assets/arrow.png')} style={{width:40,height:30,marginTop:20}}></Image></View>
+          <View><Text style={{color:'white',fontSize:15}}>To</Text><Text style={{fontSize:35,color:'white',fontWeight:'bold'}}>COK</Text><Text style={{fontSize:15,color:'white'}}>Kochi</Text></View>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
 
+
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+    backgroundColor:'#2596be',
+    height:'70%',
+  },  
 });
 
 export default App;
